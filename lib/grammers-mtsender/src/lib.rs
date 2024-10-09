@@ -572,7 +572,7 @@ impl<T: Transport, M: Mtp> Sender<T, M> {
                             .iter_mut()
                             .for_each(|r| r.state = RequestState::NotSerialized);
 
-                        return Ok(Vec::new());
+                        return Ok(vec![tl::enums::Updates::TooLong]);
                     }
                     Err(e) => ReadError::from(e),
                 }
